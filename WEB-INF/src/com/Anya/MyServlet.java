@@ -8,40 +8,28 @@ import javax.servlet.http.HttpServletResponse;
 @SuppressWarnings("serial")
 public class MyServlet extends HttpServlet {
 	public String form;
-	public String userName = "anna";
-	public String pass = "1996";
-
-	{
-		form = "<form method = \"post\">"
-				+ "<center>Sing in:</center>"
-				+ "<p><label>Usename <input type = \"text\" name = \"user\"></p>"
-				+ "<p><label>Password <input type = \"password\" name = \"password\"></p>"
-				+ "<input type = \"submit\">" + "</form>";
-
-	}
+	public String trueUsername = "anna";
+	public String truePassword = "1996";
 
 	public void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws IOException {
-		resp.setContentType("text/html");
-		resp.getWriter().println(form);
 	}
 
 	public void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws IOException {
 		resp.setContentType("text/html");
-		String responce = "You data are correct!";
+		String responce = "Your data is correct!";
+		String letter = "Super Java EE developer!";
+		
 		String user = req.getParameter("user");
 		String password = req.getParameter("password");
-		String letter = "Super Java EE developer!";
 
-		if (user.equals(userName) && password.equals(pass)) {
+		if (user.equals(trueUsername) && password.equals(truePassword)) {
 		} else {
-			responce = "You data are wrong :(";
+			responce = "Your data is wrong :(";
 			letter = " ";
 		}
 		resp.getWriter().println(responce);
 		resp.getWriter().println(letter);
-
 	}
-
 }
