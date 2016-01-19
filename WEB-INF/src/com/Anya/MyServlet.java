@@ -18,18 +18,15 @@ public class MyServlet extends HttpServlet {
 	public void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws IOException {
 		resp.setContentType("text/html");
-		String responce = "Your data is correct!";
-		String letter = "Super Java EE developer!";
+		String responce = "Super Java EE developer!";
 		
 		String user = req.getParameter("user");
 		String password = req.getParameter("password");
 
 		if (user.equals(trueUsername) && password.equals(truePassword)) {
 		} else {
-			responce = "Your data is wrong :(";
-			letter = " ";
+			responce = "Wrong :(";		
 		}
 		resp.getWriter().println(responce);
-		resp.getWriter().println(letter);
 	}
 }
